@@ -1,0 +1,43 @@
+.heading{
+    color:#3CD4B9;
+    font-weight:bold;
+    font-size:6.4vmin;
+    font-family:impact;
+    
+  
+  }
+
+  .sub-heading{
+    color:#3CD4B9;
+    font-size:3.4vmin;
+    font-family:garamond;
+    font-weight:bold;
+}
+button:disabled {
+    cursor: not-allowed;
+   
+  }
+  
+  .box{
+    background-image: url("../../../assets/create2.jpg");
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    background-size: cover
+
+  }
+  .form-heading{
+    color:#000000;
+    font-weight:bold;
+    font-size: 30px;
+    font-family:impact;
+    
+  
+  }
+  .remove{
+    opacity:1;
+  }
+
+  .cursorPointer{
+    cursor:pointer;
+  }
+  

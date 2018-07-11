@@ -1,0 +1,192 @@
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        
+        <h2 class="heading"><i class="fa fa-info-circle fa-lg"></i>
+          <u><b>Meeting Details</b></u>
+          <i class="fa fa-info-circle fa-lg"></i></h2>
+      </h5>
+      <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body back-img">
+      
+      <div>
+        <span class="heading">Creator - </span>
+           <span class="sub-heading">
+           {{ modalData?.event.meetingCreatorName}}
+           </span><br/>
+        <span class="heading">Title - </span> 
+           <span class="sub-heading">
+          {{ modalData?.event.title}}
+          </span><br/>
+        <span class="heading">Start - </span> 
+           <span class="sub-heading">
+        {{ modalData?.event.start| date:'medium' }}
+           </span><br/>
+        <span class="heading">End - </span> 
+           <span class="sub-heading">
+        {{ modalData?.event.end| date:'medium'}}
+           </span><br/>
+        <span class="heading">Venue - </span> 
+           <span class="sub-heading">
+        {{ modalData?.event.venueName}}
+           </span><br/>
+        <span class="heading">Purpose - </span>
+           <span class="sub-heading">
+          {{ modalData?.event.meetingPurpose}}
+           </span><br/>
+        
+  
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="close()">OK</button>
+    </div>
+  </ng-template>
+
+  <ng-template #alertContent let-close="close">
+    <div class="modal-header">
+      <h5 class="modal-title">
+        
+        <h2 class="heading"><i class="fa fa-info-circle fa-lg"></i>
+          <u><b>Meeting Alert</b></u>
+          <i class="fa fa-info-circle fa-lg"></i></h2>
+      </h5>
+      <button type="button" class="close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+      <div>
+        <img src="../../assets/alert.jpeg" class="mx-auto d-block img-style rounded-circle img-fluid">
+        
+        <h4 class="text-center text-success">A meeting called '{{ modalData?.event.title}}' will start soon!</h4>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-success" (click)="close();currentId='fg'">Snooze</button>
+      <button type="button" class="btn btn-outline-danger" (click)="updateMeetingStatus(modalData?.event);
+       ;close()">Dismiss</button>
+    </div>
+  </ng-template>
+
+  <div class="container">
+      <div class="row">
+        <div class="col-12">
+            <h5 class="pull-right text-success cursorPointer" (click)="logout()">
+                <i class="fa fa-sign-out fa-lg"></i>
+                    Logout
+                <i class="fa fa-sign-out mx-1 fa-lg"></i>
+            </h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center">
+            
+            <img src="../../assets/user.jpeg" class="mx-auto d-block img-style rounded-circle img-fluid">
+             
+            <h2 class="heading">
+                <img src="../../assets/welcome.png" class="img-style2 rounded img-fluid">
+                <em>Welcome,</em>
+                <img src="../../assets/welcome.png" class="img-style2 rounded img-fluid">
+            </h2>
+            <h2 class="heading text-success"><em>{{receiverName}}</em></h2>
+        </div>
+      </div>
+
+      <div class="color-box-1">
+          <div class="row text-center top-adjust">
+              <div class="col-md-4">
+                <div class="btn-group">
+                  <div
+                    class="btn btn-success"
+                    mwlCalendarPreviousView
+                    [view]="view"
+                    [(viewDate)]="viewDate"
+                    (viewDateChange)="activeDayIsOpen = false">
+                    Previous
+                  </div>
+                  <div
+                    class="btn btn-outline-secondary"
+                    mwlCalendarToday
+                    [(viewDate)]="viewDate">
+                    Today
+                  </div>
+                  <div
+                    class="btn btn-success"
+                    mwlCalendarNextView
+                    [view]="view"
+                    [(viewDate)]="viewDate"
+                    (viewDateChange)="activeDayIsOpen = false">
+                    Next
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                
+                <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+              </div>
+              <div class="col-md-4">
+                <div class="btn-group">
+                  <div
+                    class="btn btn-success"
+                    (click)="view = 'month'"
+                    [class.active]="view === 'month'">
+                    Month
+                  </div>
+                  <div
+                    class="btn btn-success"
+                    (click)="view = 'week'"
+                    [class.active]="view === 'week'">
+                    Week
+                  </div>
+                  <div
+                    class="btn btn-success"
+                    (click)="view = 'day'"
+                    [class.active]="view === 'day'">
+                    Day
+                </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div [ngSwitch]="view">
+              <mwl-calendar-month-view
+                *ngSwitchCase="'month'"
+                [viewDate]="viewDate"
+                [events]="events"
+                [refresh]="refresh"
+                [activeDayIsOpen]="activeDayIsOpen"
+                (dayClicked)="dayClicked($event.day)"
+                (eventClicked)="handleEvent('Clicked', $event.event)"
+                (eventTimesChanged)="eventTimesChanged($event)">
+              </mwl-calendar-month-view>
+              
+              <mwl-calendar-week-view
+              
+                *ngSwitchCase="'week'"
+                [viewDate]="viewDate"
+                [events]="events"
+                [refresh]="refresh"
+                (eventClicked)="handleEvent('Clicked', $event.event)"
+                (eventTimesChanged)="eventTimesChanged($event)">
+              </mwl-calendar-week-view>
+              <mwl-calendar-day-view
+                *ngSwitchCase="'day'"
+                [viewDate]="viewDate"
+                [events]="events"
+                [refresh]="refresh"
+                (eventClicked)="handleEvent('Clicked', $event.event)"
+                (eventTimesChanged)="eventTimesChanged($event)">
+              </mwl-calendar-day-view>
+            </div>
+            
+            <br><br><br>
+
+      </div>
+      
+  </div>

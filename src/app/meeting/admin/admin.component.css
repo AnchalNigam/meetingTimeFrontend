@@ -1,0 +1,110 @@
+/* main body design */
+.color-box-1{
+  background-color:#27C39C;
+  margin-top:1.8vmax;
+  min-height:50px;
+  box-shadow: 10px 10px 5px #009D63;
+  border:2px solid #009D63;
+}
+.heading{
+  color:#3CD4B9;
+  font-weight:bold;
+  font-size:6.4vmin;
+  font-family:garamond;
+  
+
+}
+.sub-heading{
+  color:white;
+  font-size:4.8vmin;
+  font-family:garamond;
+  font-weight:bold;
+}
+
+.img-style{
+  height:25vmin;
+ 
+}
+
+.crop {
+  border-radius: 100%;
+  line-height: 2vmin;
+  padding: 3vmin;
+  text-align: center;
+  margin: 0em;
+  width: 8vmin;
+  height: 8vmin;
+  float: left;
+  text-transform: uppercase;
+  background-color:#009D63;
+  font-size:3vmin;
+
+}
+
+.about {
+  float: left;
+  padding-left: 0.4em;
+  width:70%;
+}
+
+.name {
+  float: left;
+  
+  font-size:3.1vmin;
+  font-family:garamond;
+  font-weight:bold;
+  margin-top:1.5vmin
+}
+
+#box{
+padding-bottom:10vmin;
+cursor: pointer;
+ 
+}
+
+.online{
+
+  height: 10px;
+  width: 10px;
+  background-color:green;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.offline{
+
+  height: 10px;
+  width: 10px;
+  background-color:red;
+  border-radius: 50%;
+  display: inline-block;
+}
+.top-adjust{
+  margin-top:50px;
+}
+
+.back-img{
+  background-image: url("../../../assets/meeting.jpeg");
+  opacity: 0.7;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+.heading-modal{
+  color:black;
+  font-weight:bold;
+  font-size:4.1vmin;
+  font-family:garamond;
+  
+
+}
+.sub-heading-modal{
+  color:white;
+  font-size:3.4vmin;
+  font-family:garamond;
+  font-weight:bold;
+}
+
+.cursorPointer{
+  cursor:pointer;
+}
+

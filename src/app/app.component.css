@@ -1,0 +1,19 @@
+/* navbar style start */
+.navbar-custom {
+    background-color:#009D63;
+   
+}
+
+#collapsibleNavbar a:hover{
+     background-color:#3CD4B9;
+     color:white;
+     cursor:pointer;
+}
+#font-adjust{
+	font-family: Courier,;
+    font-weight:bold;
+    color:white;
+    cursor:pointer;
+
+}
+/* navbar end */

@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
+
+
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +11,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  
+ 
+  
 }

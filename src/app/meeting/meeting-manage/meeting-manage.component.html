@@ -1,0 +1,153 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h5 class="pull-right text-success cursorPointer" [routerLink]="['/admin/dashboard']">
+                <i class="fa fa-dashboard fa-lg"></i>
+                   Dashboard
+                <i class="fa fa-dashboard fa-lg"></i>
+            </h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <div *ngIf="createPartActive">
+                <img src="../../assets/create1.jpeg" class="mx-auto d-block img-style rounded-circle img-fluid">
+            </div>
+            <div *ngIf="editPartActive">
+                <img src="../../assets/edit.png" class="mx-auto d-block img-style rounded-circle img-fluid">
+            </div>
+            <div *ngIf="deletePartActive">
+                <img src="../../assets/delete.png" class="mx-auto d-block img-style rounded-circle img-fluid">
+            </div>
+            
+            <h2 class="heading"><i class="fa fa-info-circle fa-lg"></i> <u>
+              <b>Meeting Details</b></u>
+              <i class="fa fa-info-circle fa-lg"></i></h2>
+            <div *ngIf="deletePartActive">
+                <h3 class="mt-5">Are you sure you want to delete the below listed meeting?</h3>
+                <span>
+                  <button class="btn btn-danger mx-1" (click)="deleteMeeting()">Yes</button>
+                  <button class="btn btn-success mx-4" (click)="goToCalendar()">No</button>
+                </span>
+            </div>
+            
+           
+        </div>
+      </div>
+      <!-- row end -->
+      <div class="row mt-3 p-3">
+        <div class="col-12 box border">
+          <div class="mt-2 remove">
+              <form #meetingForm="ngForm" (ngSubmit)="saveMeeting()">
+                  <span class="form-heading">Meeting Creator </span>
+                
+                  <label for="inputCreatorName" class="sr-only">Meeting Creator:</label>
+          
+                  <input type="text" name="creator" [(ngModel)]="meetingCreatorName" class="form-control"
+                    placeholder="Creator Name" readonly>
+          
+                  <br>
+                  <span class="form-heading">Title </span>
+                
+                  <label for="inputTitle" class="sr-only">Title:</label>
+          
+                  <input type="text" #title="ngModel" pattern="^[A-Z][A-za-z ]+$" minlength="2" 
+                  name="meetingTitle"  id="inputTitle" class="form-control"
+                  [(ngModel)]="meetingTitle" placeholder="Meeting Name" required >
+                    <br>
+
+                    <div [hidden]="title.pristine || title.valid" class="alert alert-danger">
+                        <div *ngIf="title.errors?.pattern">
+                          ** Meeting Name should only start with Capital and contain only letters !
+                          <div *ngIf="title.errors?.minlength">
+                            ** Meeting Name should contain minimum 2 letters!
+                          </div>
+                        </div>
+                        <div *ngIf="title.errors?.required">
+                          ** Meeting Name is required!
+                        </div>
+              
+                    </div>
+
+                    <span class="form-heading">Meeting Start </span>
+                
+                    <label for="inputTitle" class="sr-only">Meeting Start:</label>
+
+                    <input [owlDateTime]="dt1" #startDate="ngModel" name="start" [(ngModel)]="start"
+                    placeholder="Date Time" readonly>
+                    <span [owlDateTimeTrigger]="dt1"><i class="fa fa-calendar"></i></span>
+                    <owl-date-time #dt1></owl-date-time>
+                    <br><br/>
+
+                    <span class="form-heading">Meeting End </span>
+                
+                    <label for="inputTitle" class="sr-only">Meeting End:</label>
+
+                    <input [owlDateTime]="dt2" #endDate="ngModel" name="end" [(ngModel)]="end"
+                    placeholder="Date Time" readonly>
+                    <span [owlDateTimeTrigger]="dt2"><i class="fa fa-calendar"></i></span>
+                    <owl-date-time #dt2></owl-date-time>
+                    <br><br/>
+
+                    
+                    <div *ngIf="checkDate(start,end)" class="alert alert-danger">
+                        ** Invalid Meeting schedule!
+                    </div>
+                    
+                  
+                  <span class="form-heading">Where </span>
+                
+                  <label for="inputVenue" class="sr-only">Where:</label>
+          
+                  <input type="text" #venue="ngModel" pattern="^[A-Z][A-za-z0-9-,. ]+$" minlength="2" 
+                  name="venueName"  [(ngModel)]="venueName" class="form-control" id="inputVenue"
+                    placeholder="Meeting Venue" required>
+                    <br>
+
+                    <div [hidden]="venue.pristine || venue.valid" class="alert alert-danger">
+                        <div *ngIf="venue.errors?.pattern">
+                          ** Venue Name should only start with Capital and contain only letters,hyphen,comma,fullstop !
+                          <div *ngIf="venue.errors?.minlength">
+                            ** Venue Name should contain minimum 2 letters!
+                          </div>
+                        </div>
+                        <div *ngIf="venue.errors?.required">
+                          ** Venue Name is required!
+                        </div>
+              
+                    </div>
+
+                  <span class="form-heading">Purpose</span>
+                
+                  <label for="inputPurpose" class="sr-only">Purpose:</label>
+          
+                  <input type="text"  #purpose="ngModel" pattern="^[A-Z][A-za-z ]+$" minlength="2" 
+                  name="meetingPurpose"  [(ngModel)]="meetingPurpose" class="form-control" id="inputPurpose"
+                    placeholder="Meeting Purpose" required>
+                    <br/>
+                    <div [hidden]="purpose.pristine || purpose.valid" class="alert alert-danger">
+                        <div *ngIf="purpose.errors?.pattern">
+                          **  Purpose should only start with Capital and contain only letters !
+                          <div *ngIf="purpose.errors?.minlength">
+                            ** Purpose should contain minimum 2 letters!
+                          </div>
+                        </div>
+                        <div *ngIf="purpose.errors?.required">
+                          ** Purpose is required!
+                        </div>
+              
+                    </div>
+                    <br/>
+                  <div *ngIf="deletePartActive==false">
+                    <button class="btn btn-lg btn-success btn-block" type="submit" [disabled]="!meetingForm.form.valid">Go</button>
+                  </div>  
+                  
+              </form>
+    
+
+          </div>
+          
+        </div>
+
+      </div>
+</div>

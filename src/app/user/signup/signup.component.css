@@ -1,0 +1,21 @@
+.heading{
+    color:#27C39C;
+    
+    font-size:4.5vmin;
+    font-family:sans-serif;
+    
+}
+.sub-heading{
+    color:#3CD4B9;
+    font-size:3.4vmin;
+    font-family:garamond;
+    font-weight:bold;
+}
+button:disabled {
+    cursor: not-allowed;
+   
+  }
+
+  .cursorPointer{
+    cursor: pointer;
+}
