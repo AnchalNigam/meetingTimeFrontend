@@ -1,6 +1,5 @@
 # MeetingPlanner
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 Design is made using bootstrap4 from scratch for both small screen and desktop.
 
 USER MANAGEMENT PART:
@@ -87,6 +86,12 @@ Sunita123
 Security Answer for admin:
 
 meeting will be successful
+
+Screenshots:
+
+![meeting2](https://user-images.githubusercontent.com/32920850/42731137-a162d4f4-8824-11e8-924c-795577d8f177.png)
+![meeting1](https://user-images.githubusercontent.com/32920850/42731139-a6fd763a-8824-11e8-9491-ae76d5722e5b.png)
+
 
 
 
