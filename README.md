@@ -59,33 +59,7 @@ Meetings Management part:
 
 3) Before 5 minutes of meeting, alert modal will also come which user can snooze or dismiss.
 
-Live Link:
-http://meetingtime.webdeveloperjourney.xyz/login
 
-Events Documentation Link:
-http://meetingtime.webdeveloperjourney.xyz/eventsDocumentation/
-
-ApiDocumentation link:
-http://meetingtime.webdeveloperjourney.xyz/apiDocumentation/
-
-My credentials:
-
-Email: (Admin User)
-anchalnigamm@gmail.com
-
-Password:
-Anchal123
-
-Email (Normal User)
-ibm2013044@iiita.ac.in
-
-password
-Sunita123
-
-
-Security Answer for admin:
-
-meeting will be successful
 
 Screenshots:
 
