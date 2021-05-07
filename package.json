@@ -27,7 +27,7 @@
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.21",
     "ng-pick-datetime": "^6.0.9",
     "ng2-cookies": "^1.0.12",
     "ng2-opd-popup": "^1.1.21",
